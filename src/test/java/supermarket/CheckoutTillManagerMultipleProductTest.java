@@ -4,9 +4,10 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
-import supermarket.factory.DefaultShoppingCartFactory;
-import supermarket.factory.ShoppingCardBase;
-import supermarket.factory.ShoppingCartFactory;
+import supermarket.pricefactory.PriceRule;
+import supermarket.shopingcartfactory.DefaultShoppingCartFactory;
+import supermarket.shopingcartfactory.ShoppingCardBase;
+import supermarket.shopingcartfactory.ShoppingCartFactory;
 
 import java.math.BigDecimal;
 import java.util.Map;
@@ -19,10 +20,12 @@ public class CheckoutTillManagerMultipleProductTest {
     ShoppingCartFactory cartFactory;
     ShoppingCardBase yourCart;
     CheckoutTillManager till;
+    PriceRule priceRule;
 
     @BeforeAll
     public void setup() {
-        priceMap = PricingRule.getRuleMapInstance();
+        priceRule = new DefaultPricingRule();
+        priceMap = priceRule.getRuleMapInstance();
         cartFactory = new DefaultShoppingCartFactory();
         till = new CheckoutTillManager();
     }

@@ -1,4 +1,4 @@
-package supermarket.factory;
+package supermarket.shopingcartfactory;
 
 
 public interface ShoppingCartFactory {

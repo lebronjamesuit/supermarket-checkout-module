@@ -1,6 +1,6 @@
 package supermarket;
 
-import supermarket.factory.ShoppingCardBase;
+import supermarket.shopingcartfactory.ShoppingCardBase;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -10,12 +10,13 @@ import java.util.List;
 /**
  * Default shopping cart in the application, centralize add, update and remove products
  * return immutable Collection of Products
+ *
  * @author James
  * @Since 10.2023
  */
 public class DefaultShoppingCart implements ShoppingCardBase {
 
-    private List<Product> products = new ArrayList<>();
+    private final List<Product> products = new ArrayList<>();
     private BigDecimal totalPrice = BigDecimal.ZERO;
 
     @Override
@@ -39,7 +40,7 @@ public class DefaultShoppingCart implements ShoppingCardBase {
     }
 
     // Time complexity: O(n)
-    public void updateProduct(Product oldProduct, Product updatedProduct){
+    public void updateProduct(Product oldProduct, Product updatedProduct) {
         // remove the old one
         products.remove(oldProduct);
         totalPrice = totalPrice.subtract(oldProduct.getPrice());

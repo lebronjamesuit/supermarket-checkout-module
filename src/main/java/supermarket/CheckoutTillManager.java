@@ -1,6 +1,6 @@
 package supermarket;
 
-import supermarket.factory.ShoppingCardBase;
+import supermarket.shopingcartfactory.ShoppingCardBase;
 
 import java.math.BigDecimal;
 import java.util.Map;
@@ -28,7 +28,7 @@ public class CheckoutTillManager {
             cart.addProduct(newProduct);
         } else {
             Product existingProduct = optionalProduct.get();
-            Product productUpdated =  createNewProductForUpdate(existingProduct, priceByItem);
+            Product productUpdated = createNewProductForUpdate(existingProduct, priceByItem);
             cart.updateProduct(existingProduct, productUpdated);
         }
 

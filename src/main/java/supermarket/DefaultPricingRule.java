@@ -1,21 +1,25 @@
 package supermarket;
 
+import supermarket.pricefactory.PriceRule;
+
 import java.math.BigDecimal;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
 
 /**
- * Implement a flexible Pricing Rule for the application
+ * Implement a default Pricing Rule for the application
  * return static priceMap <productName, <quantity, price>> ;
+ *
  * @author James
  * @Since 10.2023
  */
-public class PricingRule {
+public class DefaultPricingRule implements PriceRule {
 
-    private static final Map<String, Map<Integer, BigDecimal>> priceMap = new HashMap<>();
+    private final Map<String, Map<Integer, BigDecimal>> priceMap = new HashMap<>();
 
-    static {
+    public DefaultPricingRule() {
         priceMap.put(ProductUtil.PRODUCT_A, makePriceRuleByPair(1, 50, 3, 130));
         priceMap.put(ProductUtil.PRODUCT_B, makePriceRuleByPair(1, 30, 2, 45));
         priceMap.put(ProductUtil.PRODUCT_C, makePriceRuleByPair(1, 20));
@@ -27,11 +31,11 @@ public class PricingRule {
         // Add more  product G H K M N ..... pair(quantity, price)
     }
 
-    public static Map<String, Map<Integer, BigDecimal>> getRuleMapInstance() {
-        return priceMap;
+    public Map<String, Map<Integer, BigDecimal>> getRuleMapInstance() {
+        return Collections.unmodifiableMap(priceMap);
     }
 
-    private static Map<Integer, BigDecimal> makePriceRuleByPair(Integer... args) {
+    private Map<Integer, BigDecimal> makePriceRuleByPair(Integer... args) {
         if (args.length % 2 != 0) {
             throw new IllegalArgumentException("Only accept args in pair(quantity, price)");
         }
