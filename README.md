@@ -1,6 +1,10 @@
 # supermarket-checkout-module
 Implement the code for a checkout system that handles pricing schemes 
 
+# Required:
+ - Java 11 or 17
+ - Maven 3.8.6
+
 # Run all test for the app.
 
     mvn test
