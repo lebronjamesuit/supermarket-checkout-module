@@ -17,3 +17,14 @@ Implement the code for a checkout system that handles pricing schemes
 # Test application.
 
 <img width="1201" alt="Screenshot 2023-10-11 at 14 09 09" src="https://github.com/lebronjamesuit/supermarket-checkout-module/assets/11584601/440dfb3c-77d8-44f6-ba8d-2347b3a274ce">
+
+
+# Run app by command line or terminal
+
+    mvn clean install 
+    /sourcecide/target/ java -jar checkout-system-1.0-SNAPSHOT.jar
+    
+<img width="749" alt="Screenshot 2023-10-13 at 18 44 39" src="https://github.com/lebronjamesuit/supermarket-checkout-module/assets/11584601/2d74e55a-9b2f-4cff-a0d2-2a445af8a620">
+
+
+    
